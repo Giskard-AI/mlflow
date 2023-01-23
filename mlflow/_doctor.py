@@ -78,8 +78,9 @@ def doctor(mask_envs=False):
         ("Registry URI", mlflow.get_registry_uri()),
     ]
 
-    if (runtime := get_databricks_runtime()) is not None:
-        items.append(("Databricks runtime version", runtime))
+    # RAK: in order to ensure compatibility with py3.7
+    #if (runtime := get_databricks_runtime()) is not None:
+    #    items.append(("Databricks runtime version", runtime))
 
     active_run = mlflow.active_run()
     if active_run:
